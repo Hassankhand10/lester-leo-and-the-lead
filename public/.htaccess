@@ -1,0 +1,19 @@
+# SPA routing for cPanel / Apache
+Options -MultiViews
+RewriteEngine On
+RewriteBase /Robin-Bartkovsky/
+
+# Don't rewrite existing files/directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Send everything else to index.html
+RewriteRule ^ /Robin-Bartkovsky/index.html [L]
+
+# Long cache for static assets
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:ico|gif|jpe?g|png|svg|webp|woff2?|ttf|eot|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
