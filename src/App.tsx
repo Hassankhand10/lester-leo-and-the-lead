@@ -9,7 +9,6 @@ import { Toaster } from "@/components/ui/sonner";
 import Home from "./routes/index";
 import About from "./routes/about";
 import Books from "./routes/books";
-import Story from "./routes/story";
 import Audiobook from "./routes/audiobook";
 import Videobook from "./routes/videobook";
 import Contact from "./routes/contact";
@@ -50,7 +49,6 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/books" element={<Books />} />
-            <Route path="/story" element={<Story />} />
             <Route path="/audiobook" element={<Audiobook />} />
             <Route path="/videobook" element={<Videobook />} />
             <Route path="/contact" element={<Contact />} />

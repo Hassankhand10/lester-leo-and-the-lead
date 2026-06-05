@@ -12,7 +12,6 @@ import {
   ShieldCheck,
   Gift,
   ExternalLink,
-  BookOpen,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Starfield } from "@/components/Starfield";
@@ -165,12 +164,6 @@ export default function BooksPage() {
               </a>
             </div>
 
-            <Link
-              to="/story"
-              className="mt-5 inline-flex items-center gap-2 text-violet font-semibold hover:gap-3 transition-all"
-            >
-              <BookOpen className="w-4 h-4" /> Take a peek inside first
-            </Link>
           </div>
         </div>
       </section>

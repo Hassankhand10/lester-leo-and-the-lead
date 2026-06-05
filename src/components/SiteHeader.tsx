@@ -9,7 +9,6 @@ const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/books", label: "The Book" },
-  { to: "/story", label: "Peek Inside" },
   { to: "/audiobook", label: "Audio" },
   { to: "/videobook", label: "Video" },
   { to: "/contact", label: "Contact" },

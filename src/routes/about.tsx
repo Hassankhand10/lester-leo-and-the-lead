@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Star, Sparkles, Quote, Heart, Sprout, Moon, ExternalLink } from "lucide-react";
+import { BookOpen, Star, Sparkles, Quote, Sprout, Moon, ExternalLink } from "lucide-react";
 import { book, author, purchaseUrl } from "@/lib/books";
 import { Starfield } from "@/components/Starfield";
 import coverBack from "@/assets/cover-back.webp";
@@ -189,9 +189,6 @@ export default function About() {
             <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
               <ExternalLink className="w-4 h-4" /> Buy the Book
             </a>
-            <Link to="/story" className="btn-ghost">
-              <Heart className="w-4 h-4" /> Peek inside
-            </Link>
           </div>
         </div>
       </section>

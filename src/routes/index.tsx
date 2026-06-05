@@ -12,7 +12,7 @@ import {
   Users,
   Wand2,
 } from "lucide-react";
-import { book, author, characters, peekSpreads, purchaseUrl } from "@/lib/books";
+import { book, author, characters, purchaseUrl } from "@/lib/books";
 import { Starfield } from "@/components/Starfield";
 
 const buyTarget = purchaseUrl.startsWith("http") ? "_blank" : undefined;
@@ -52,9 +52,6 @@ export default function Home() {
               <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
                 <ShoppingBag className="w-4 h-4" /> Buy the Book
               </a>
-              <Link to="/story" className="btn-ghost">
-                <BookOpen className="w-4 h-4" /> Peek Inside
-              </Link>
             </div>
 
             <div className="mt-10 flex items-center gap-6 text-cream/70 text-sm">
@@ -210,51 +207,6 @@ export default function Home() {
                 <p className="mt-4 text-cream/75 leading-relaxed text-sm">{c.blurb}</p>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== PEEK INSIDE ===== */}
-      <section className="panel-parchment py-24 px-6 lg:px-12">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <div>
-              <span className="eyebrow">Painted by Hand</span>
-              <h2 className="mt-4 section-title text-4xl md:text-6xl text-navy">
-                A peek <span className="gradient-text">inside</span>
-              </h2>
-            </div>
-            <p className="text-muted-foreground max-w-sm leading-relaxed">
-              Every spread is a soft watercolor world of moonlight, stars, and the friends of Astro Academy.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-6">
-            {peekSpreads.map((s, i) => (
-              <motion.figure
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="card-soft overflow-hidden group"
-              >
-                <div className="overflow-hidden">
-                  <img
-                    src={s.image}
-                    alt={s.caption}
-                    className="w-full aspect-[16/9] object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <figcaption className="px-5 py-4 font-script text-xl text-navy">{s.caption}</figcaption>
-              </motion.figure>
-            ))}
-          </div>
-
-          <div className="mt-10 text-center">
-            <Link to="/story" className="btn-outline-ink">
-              See more pages <ArrowRight className="w-4 h-4" />
-            </Link>
           </div>
         </div>
       </section>

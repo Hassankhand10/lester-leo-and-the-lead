@@ -84,11 +84,6 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/story" className="hover:text-gold transition">
-                Peek Inside
-              </Link>
-            </li>
-            <li>
               <Link to="/audiobook" className="hover:text-gold transition">
                 Audiobook
               </Link>
