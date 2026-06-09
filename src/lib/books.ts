@@ -1,5 +1,5 @@
 import coverFront from "@/assets/cover-front.webp";
-import coverBack from "@/assets/cover-back.webp";
+import coverBack from "@/assets/cover-back.png";
 
 import spread01 from "@/assets/illustrations/spread-01.webp";
 import spread02 from "@/assets/illustrations/spread-02.webp";
@@ -60,8 +60,10 @@ export interface Book {
 export const purchaseUrl = "#";
 
 export const author = {
-  name: "Robin Lee Bartkovsky",
+  name: "Robin Bartkovsky",
   series: "Astro Academy",
+  email: "hello@astroacademybooks.com",
+  bio: "Robin Bartkovsky is an amateur astrologist and former teacher. She resides outside Chicago with her supportive husband, teenage sons, and adorable fur babies.",
   tagline:
     "A warm-hearted picture book about a confident little lion, his best friend, and the gentle magic of letting someone else shine.",
 };
@@ -93,7 +95,7 @@ export const characters = [
 export const book: Book = {
   id: "lester-leo-and-the-lead",
   title: "Lester Leo And The Lead",
-  subtitle: "An Astro Academy story by Robin Lee Bartkovsky",
+  subtitle: "An Astro Academy story by Robin Bartkovsky",
   series: "Astro Academy",
   tagline: author.tagline,
   sign: "Leo",
@@ -101,7 +103,7 @@ export const book: Book = {
   coverFront,
   coverBack,
   blurb:
-    "Welcome to Astro Academy! When Lester Leo gets some surprising news about this year's class play, Mrs. Sourcey steps in with a gentle reminder that it's okay to allow others to shine, too. Discover the power of friendship.",
+    "Welcome to Astro Academy! When Lester Leo gets some surprising news about this year's class play, Mrs. Sourcey steps in with a gentle reminder that it's okay to allow others to shine, too. Discover the power of friendship!",
   longDescription: [
     "Lester Leo could not WAIT to get to school. Today was the day Mrs. Sourcey was posting the roles of the class play, Our Unique Universe — and he just KNEW he was going to be the lead.",
     "But when the cast list goes up, the spotlight lands somewhere Lester never expected. With a little wisdom from Mrs. Sourcey and a lot of heart, Lester discovers that supporting the people we love is its own kind of brave.",
@@ -111,24 +113,24 @@ export const book: Book = {
   formats: [
     {
       type: "Paperback",
-      price: 12.99,
+      price: 5.99,
       tagline: "Soft, light, and perfect for backpacks and bedtimes.",
-      perks: ["Matte storybook cover", "Vivid watercolor pages", "Ships in 2–3 days", "Ages 4–8"],
+      perks: ["Matte storybook cover", "Vivid watercolor pages", "Ages 4–8"],
     },
     {
       type: "Hardcover",
-      price: 18.99,
+      price: 9.99,
       tagline: "A keepsake edition built to be read again and again.",
-      perks: ["Durable hardback", "Lay-flat binding", "Signed bookplate", "Gift-ready"],
+      perks: ["Durable hardback", "Gift-ready", "Ages 4–8"],
     },
     {
       type: "E-Book",
-      price: 4.99,
+      price: 2.99,
       tagline: "Read anywhere — tablets, phones, and starlit road trips.",
       perks: ["Instant delivery", "PDF + EPUB", "Read-aloud friendly", "No DRM"],
     },
   ],
-  pages: 32,
+  pages: 16,
   ageRange: "4–8",
   themes: ["Friendship", "Confidence", "Humility", "Kindness", "Leadership", "Astrology"],
   strengths: [

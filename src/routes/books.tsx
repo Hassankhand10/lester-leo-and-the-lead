@@ -1,12 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { book, type Format, purchaseUrl } from "@/lib/books";
+import { book, author, type Format, purchaseUrl } from "@/lib/books";
 import { useCart } from "@/lib/cart";
 import {
   Check,
   ShoppingBag,
-  Star,
   Sparkles,
   Truck,
   ShieldCheck,
@@ -20,8 +19,14 @@ const buyTarget = purchaseUrl.startsWith("http") ? "_blank" : undefined;
 
 export default function BooksPage() {
   const [format, setFormat] = useState<Format>("Hardcover");
+  const [flipped, setFlipped] = useState(false);
   const { add } = useCart();
   const selected = book.formats.find((f) => f.type === format)!;
+
+  useEffect(() => {
+    const id = setInterval(() => setFlipped((f) => !f), 4000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <>
@@ -49,11 +54,36 @@ export default function BooksPage() {
             className="relative lg:sticky lg:top-28"
           >
             <div className="absolute -inset-10 bg-violet/15 blur-3xl rounded-full" />
-            <img
-              src={book.coverFront}
-              alt={`${book.title} — front cover`}
-              className="relative w-full max-w-md mx-auto rounded-2xl border border-violet/20 shadow-[0_30px_70px_-25px_rgba(54,36,120,0.6)] rotate-1 hover:rotate-0 transition-transform duration-500"
-            />
+            <div
+              className="relative max-w-md mx-auto cursor-pointer select-none"
+              style={{ perspective: "1400px" }}
+              onClick={() => setFlipped((f) => !f)}
+              onMouseEnter={() => setFlipped(true)}
+              onMouseLeave={() => setFlipped(false)}
+            >
+              <motion.div
+                className="relative w-full"
+                style={{ transformStyle: "preserve-3d" }}
+                animate={{ rotateY: flipped ? 180 : 0 }}
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+              >
+                <img
+                  src={book.coverFront}
+                  alt={`${book.title} — front cover`}
+                  className="w-full rounded-2xl border border-violet/20 shadow-[0_30px_70px_-25px_rgba(54,36,120,0.6)]"
+                  style={{ backfaceVisibility: "hidden" }}
+                />
+                <img
+                  src={book.coverBack}
+                  alt={`${book.title} — back cover`}
+                  className="absolute inset-0 w-full h-full rounded-2xl border border-violet/20 shadow-[0_30px_70px_-25px_rgba(54,36,120,0.6)]"
+                  style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
+                />
+              </motion.div>
+            </div>
+            <p className="relative mt-4 text-center text-xs font-semibold tracking-wide uppercase text-muted-foreground">
+              Tap to flip · front & back
+            </p>
             <div className="mt-6 grid grid-cols-3 gap-3 max-w-md mx-auto">
               {[
                 { icon: Truck, t: "Free over $35" },
@@ -77,13 +107,8 @@ export default function BooksPage() {
             <p className="mt-3 text-muted-foreground italic">{book.subtitle}</p>
 
             <div className="mt-5 flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-gold text-gold" />
-                ))}
-              </div>
               <span className="text-sm font-semibold text-muted-foreground">
-                4.9 · 218 reviews · {book.pages} pages · Ages {book.ageRange}
+                {book.pages} pages · Ages {book.ageRange}
               </span>
             </div>
 
@@ -171,45 +196,24 @@ export default function BooksPage() {
       {/* ABOUT THE BOOK */}
       <section className="panel-night relative py-20 overflow-hidden">
         <Starfield count={45} shootingStars={2} />
-        <div className="relative mx-auto max-w-5xl px-6 text-cream">
-          <div className="text-center mb-12">
-            <span className="eyebrow text-gold">About the Book</span>
-            <h2 className="mt-4 section-title text-4xl md:text-6xl text-cream">
-              A quiet kind of <span className="gold-text">brave.</span>
-            </h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="space-y-4 text-cream/85 leading-relaxed">
-              {book.longDescription.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
+        <div className="relative mx-auto max-w-3xl px-6 text-cream text-center">
+          <span className="eyebrow text-gold">About the Book</span>
+          <h2 className="mt-4 section-title text-4xl md:text-6xl text-cream">
+            A quiet kind of <span className="gold-text">brave.</span>
+          </h2>
+          <p className="mt-8 text-lg text-cream/85 leading-relaxed">{book.blurb}</p>
+          <div className="mt-10 inline-flex flex-wrap justify-center gap-8 text-sm">
+            <div>
+              <p className="font-display text-3xl font-bold gold-text">{book.pages}</p>
+              <p className="mt-1 text-xs tracking-widest uppercase text-cream/60">Pages</p>
             </div>
-            <div className="space-y-5">
-              <div className="card-night p-6">
-                <h3 className="font-display text-2xl font-semibold text-cream">At a glance</h3>
-                <dl className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
-                  <dt className="text-cream/55 font-semibold">Pages</dt>
-                  <dd className="font-bold">{book.pages}</dd>
-                  <dt className="text-cream/55 font-semibold">Ages</dt>
-                  <dd className="font-bold">{book.ageRange}</dd>
-                  <dt className="text-cream/55 font-semibold">Sign</dt>
-                  <dd className="font-bold">Leo · {book.signDates}</dd>
-                  <dt className="text-cream/55 font-semibold">Series</dt>
-                  <dd className="font-bold">{book.series}</dd>
-                  <dt className="text-cream/55 font-semibold">Author</dt>
-                  <dd className="font-bold">Robin Lee Bartkovsky</dd>
-                </dl>
-              </div>
-              <div className="card-night p-6">
-                <h3 className="font-display text-2xl font-semibold text-cream">Themes</h3>
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {book.themes.map((t) => (
-                    <span key={t} className="chip-night">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+            <div>
+              <p className="font-display text-3xl font-bold gold-text">{book.ageRange}</p>
+              <p className="mt-1 text-xs tracking-widest uppercase text-cream/60">Ages</p>
+            </div>
+            <div>
+              <p className="font-display text-3xl font-bold gold-text">{author.name}</p>
+              <p className="mt-1 text-xs tracking-widest uppercase text-cream/60">Author</p>
             </div>
           </div>
         </div>

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { BookOpen, Star, Sparkles, Quote, Sprout, Moon, ExternalLink } from "lucide-react";
+import { BookOpen, Quote, Moon, Mail } from "lucide-react";
 import { book, author, purchaseUrl } from "@/lib/books";
 import { Starfield } from "@/components/Starfield";
-import coverBack from "@/assets/cover-back.webp";
-import spreadTeacher from "@/assets/illustrations/spread-12.webp";
+import authorPhoto from "@/assets/robin.png";
 
 const buyTarget = purchaseUrl.startsWith("http") ? "_blank" : undefined;
 
@@ -19,10 +18,7 @@ export default function About() {
           <h1 className="mt-4 section-title text-[clamp(2.6rem,6vw,5rem)] text-cream">
             Hello, I'm <span className="gold-text">Robin</span>
           </h1>
-          <p className="mt-5 text-cream/80 max-w-xl leading-relaxed">
-            Storyteller, lifelong daydreamer, and creator of the Astro Academy series — gentle picture books inspired by
-            the stars.
-          </p>
+          <p className="mt-5 text-cream/80 max-w-xl leading-relaxed">{author.bio}</p>
           <div className="mt-6 inline-flex items-center gap-2 text-cream/70 text-sm">
             <Moon className="w-4 h-4 text-gold" /> {author.name}
           </div>
@@ -40,8 +36,8 @@ export default function About() {
           >
             <div className="absolute -inset-6 bg-violet/15 blur-3xl rounded-full" />
             <img
-              src={coverBack}
-              alt="Lester Leo And The Lead — back cover"
+              src={authorPhoto}
+              alt={author.name}
               className="relative w-full rounded-2xl border border-violet/20 shadow-[0_24px_60px_-25px_rgba(54,36,120,0.6)] -rotate-2 hover:rotate-0 transition-transform duration-500"
             />
           </motion.div>
@@ -67,112 +63,16 @@ export default function About() {
               My curiosity led me to take a beginner astrology course, and the knowledge I gained is what inspired me to
               create this series. I hope you find astrology to be as helpful and enlightening as I have.
             </p>
-            <p className="font-script text-3xl text-violet">With love, Robin</p>
+            <p className="font-script text-3xl text-violet">Sincerely, Robin</p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link to="/books" className="btn-primary">
                 <BookOpen className="w-4 h-4" /> Read the Book
               </Link>
-              <Link to="/contact" className="btn-outline-ink">
-                Say hello
-              </Link>
+              <a href={`mailto:${author.email}`} className="btn-outline-ink">
+                <Mail className="w-4 h-4" /> Email me
+              </a>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* ABOUT ASTRO ACADEMY */}
-      <section className="panel-night relative py-24 overflow-hidden">
-        <Starfield count={50} shootingStars={2} />
-        <div className="relative mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <span className="eyebrow text-gold">
-              <Sparkles className="w-4 h-4" /> The Series
-            </span>
-            <h2 className="mt-4 section-title text-4xl md:text-6xl text-cream">
-              Welcome to <span className="gold-text">Astro Academy</span>
-            </h2>
-            <p className="mt-6 text-lg text-cream/80 leading-relaxed">
-              Astro Academy is a school where every little student carries the spark of their star sign. Each story
-              follows one of them through a very real, very kid-sized feeling — and the gentle lesson the stars have to
-              teach.
-            </p>
-            <p className="mt-4 text-lg text-cream/80 leading-relaxed">
-              In <em>{book.title}</em>, our confident lion Lester learns that the brightest stars know how to let others
-              shine, too.
-            </p>
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              {[
-                { l: "Pages", v: book.pages },
-                { l: "Ages", v: book.ageRange },
-                { l: "Sign", v: "Leo" },
-              ].map((s) => (
-                <div key={s.l} className="card-night p-5 text-center">
-                  <p className="font-display text-3xl font-bold gold-text">{s.v}</p>
-                  <p className="mt-1 text-xs tracking-widest uppercase text-cream/60">{s.l}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="order-1 lg:order-2 relative"
-          >
-            <div className="absolute -inset-6 bg-gold/15 blur-3xl rounded-full" />
-            <img
-              src={spreadTeacher}
-              alt="A spread from Lester Leo And The Lead"
-              className="relative w-full rounded-2xl border border-cream/15 shadow-2xl rotate-1 hover:rotate-0 transition-transform duration-500"
-            />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* LEO STRENGTHS + GROWTH */}
-      <section className="panel-parchment py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="eyebrow">The Leo Sun Sign</span>
-            <h2 className="mt-4 section-title text-4xl md:text-6xl text-navy">
-              Born to <span className="gradient-text">shine.</span>
-            </h2>
-            <p className="mt-3 text-muted-foreground">Leo · {book.signDates}</p>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="card-soft p-8">
-              <div className="flex items-center gap-3">
-                <span className="w-11 h-11 rounded-full bg-gold/20 grid place-items-center">
-                  <Star className="w-5 h-5 text-gold fill-gold" />
-                </span>
-                <h3 className="font-display text-2xl font-semibold text-navy">Strengths</h3>
-              </div>
-              <ul className="mt-6 space-y-3">
-                {book.strengths.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-foreground/85">
-                    <Star className="w-4 h-4 shrink-0 mt-1 text-gold fill-gold" />
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="card-soft p-8">
-              <div className="flex items-center gap-3">
-                <span className="w-11 h-11 rounded-full bg-violet/15 grid place-items-center">
-                  <Sprout className="w-5 h-5 text-violet" />
-                </span>
-                <h3 className="font-display text-2xl font-semibold text-navy">Room to grow</h3>
-              </div>
-              <ul className="mt-6 space-y-3">
-                {book.growth.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-foreground/85">
-                    <Sparkles className="w-4 h-4 shrink-0 mt-1 text-violet" />
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -187,7 +87,7 @@ export default function About() {
           <p className="mt-7 text-cream/70 text-sm tracking-widest uppercase">— {author.name} · {book.title}</p>
           <div className="mt-10 flex flex-wrap justify-center gap-3.5">
             <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
-              <ExternalLink className="w-4 h-4" /> Buy the Book
+              <BookOpen className="w-4 h-4" /> Buy the Book
             </a>
           </div>
         </div>

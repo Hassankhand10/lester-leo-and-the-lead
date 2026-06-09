@@ -8,9 +8,9 @@ import { AnimatePresence, motion } from "framer-motion";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/books", label: "The Book" },
-  { to: "/audiobook", label: "Audio" },
-  { to: "/videobook", label: "Video" },
+  { to: "/books", label: "Book" },
+  { to: "/audiobook", label: "AudioBook" },
+  { to: "/videobook", label: "VideoBook" },
   { to: "/contact", label: "Contact" },
 ];
 
