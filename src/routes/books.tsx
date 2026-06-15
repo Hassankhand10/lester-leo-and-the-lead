@@ -28,28 +28,36 @@ export default function BooksPage() {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash === "#order") {
+      requestAnimationFrame(() => {
+        document.getElementById("order")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+  }, []);
+
   return (
     <>
       {/* HEADER */}
-      <section className="panel-night relative py-16 text-center overflow-hidden">
+      <section className="panel-night relative py-14 text-center overflow-hidden">
         <Starfield count={50} shootingStars={2} />
         <div className="relative mx-auto max-w-3xl px-6 text-cream">
-          <span className="eyebrow text-gold">The Book</span>
+          <span className="eyebrow text-gold">Order the Book</span>
           <h1 className="mt-4 section-title text-4xl md:text-6xl text-cream">
-            One story. <span className="gold-text">Three ways to read.</span>
+            Choose your <span className="gold-text">format</span>
           </h1>
           <p className="mt-4 text-cream/75 leading-relaxed">
-            Hold it, gift it, or carry it on your tablet — pick the format that fits your little one's bedtime best.
+            Pick paperback, hardcover, or e-book — then add to cart or buy now.
           </p>
         </div>
       </section>
 
-      {/* PRODUCT */}
-      <section className="bg-secondary py-16">
+      {/* ORDER — purchase options first */}
+      <section id="order" className="bg-secondary py-16 scroll-mt-20">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-14 items-start">
-          {/* COVER */}
+          {/* Cover */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="relative lg:sticky lg:top-28"
           >
@@ -98,25 +106,16 @@ export default function BooksPage() {
             </div>
           </motion.div>
 
-          {/* DETAILS */}
+          {/* Order details */}
           <div>
             <span className="eyebrow">
               <Sparkles className="w-4 h-4" /> {book.series} · Leo
             </span>
-            <h2 className="mt-3 section-title text-4xl md:text-6xl text-navy">{book.title}</h2>
-            <p className="mt-3 text-muted-foreground italic">{book.subtitle}</p>
-
-            <div className="mt-5 flex items-center gap-3 flex-wrap">
-              <span className="text-sm font-semibold text-muted-foreground">
-                {book.pages} pages · Ages {book.ageRange}
-              </span>
-            </div>
-
-            <p className="mt-6 text-foreground/85 leading-relaxed">{book.blurb}</p>
-
-            <blockquote className="mt-6 card-soft p-6">
-              <p className="font-script text-2xl text-navy leading-snug">"{book.excerpt}"</p>
-            </blockquote>
+            <h2 className="mt-3 section-title text-3xl md:text-5xl text-navy">{book.title}</h2>
+            <p className="mt-2 text-muted-foreground italic">{book.subtitle}</p>
+            <p className="mt-3 text-sm font-semibold text-muted-foreground">
+              {book.pages} pages · Ages {book.ageRange}
+            </p>
 
             {/* FORMAT PICKER */}
             <div className="mt-8">
@@ -189,11 +188,17 @@ export default function BooksPage() {
               </a>
             </div>
 
+            <Link
+              to="/cart"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-violet hover:text-indigo transition"
+            >
+              <ShoppingBag className="w-4 h-4" /> View cart
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ABOUT THE BOOK */}
+      {/* ABOUT THE BOOK — below order */}
       <section className="panel-night relative py-20 overflow-hidden">
         <Starfield count={45} shootingStars={2} />
         <div className="relative mx-auto max-w-3xl px-6 text-cream text-center">
@@ -202,6 +207,9 @@ export default function BooksPage() {
             A quiet kind of <span className="gold-text">brave.</span>
           </h2>
           <p className="mt-8 text-lg text-cream/85 leading-relaxed">{book.blurb}</p>
+          <blockquote className="mt-10 card-soft p-6 text-left">
+            <p className="font-script text-2xl text-navy leading-snug">{book.excerpt}</p>
+          </blockquote>
           <div className="mt-10 inline-flex flex-wrap justify-center gap-8 text-sm">
             <div>
               <p className="font-display text-3xl font-bold gold-text">{book.pages}</p>

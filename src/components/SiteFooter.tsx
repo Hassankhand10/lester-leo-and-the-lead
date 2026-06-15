@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { Mail, Heart, Moon, Star, ExternalLink } from "lucide-react";
+import { Mail, Heart, Moon, Star } from "lucide-react";
 import { Starfield } from "@/components/Starfield";
-import { author, purchaseUrl } from "@/lib/books";
+import { BuyTheBookLink } from "@/components/BuyTheBookLink";
+import { author } from "@/lib/books";
 
 export function SiteFooter() {
   return (
@@ -23,14 +24,9 @@ export function SiteFooter() {
             <em>Lester Leo And The Lead</em> — a warm picture book about a confident little lion, his best friend, and
             the gentle magic of letting someone else shine. Made for bedtimes, blanket forts, and big little hearts.
           </p>
-          <a
-            href={purchaseUrl}
-            target={purchaseUrl.startsWith("http") ? "_blank" : undefined}
-            rel="noreferrer"
-            className="btn-gold mt-7"
-          >
-            Buy the Book <ExternalLink className="w-4 h-4" />
-          </a>
+          <BuyTheBookLink className="btn-gold mt-7">
+            Buy the Book
+          </BuyTheBookLink>
         </div>
 
         <div className="md:col-span-3">
@@ -59,6 +55,11 @@ export function SiteFooter() {
             <li>
               <Link to="/contact" className="hover:text-gold transition">
                 Contact
+              </Link>
+            </li>
+            <li>
+              <Link to="/marketing" className="hover:text-gold transition">
+                Social Images
               </Link>
             </li>
           </ul>

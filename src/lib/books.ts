@@ -53,11 +53,17 @@ export interface Book {
   growth: string[];
 }
 
+/** Internal order page — format picker and add-to-cart. */
+export const orderPath = "/books#order";
+
 /**
- * Where the "Buy Now" buttons point. Replace this with the real
- * retailer / store checkout URL when it is ready.
+ * External retailer checkout. Replace with the real store URL when ready.
+ * "Buy the Book" always uses {@link orderPath} instead.
  */
 export const purchaseUrl = "#";
+
+/** Robin's tagline used across the site. */
+export const seriesTagline = "We are here to help each other shine.";
 
 export const author = {
   name: "Robin Bartkovsky",
@@ -87,7 +93,7 @@ export const characters = [
     name: "Mrs. Sourcey",
     role: "The wise teacher",
     blurb:
-      "Astro Academy's gentle guide, who reminds her students that every star shines in its own special way.",
+      "Astro Academy's gentle guide, who reminds her students that we are here to help each other shine.",
     emoji: "✨",
   },
 ];
@@ -109,7 +115,7 @@ export const book: Book = {
     "But when the cast list goes up, the spotlight lands somewhere Lester never expected. With a little wisdom from Mrs. Sourcey and a lot of heart, Lester discovers that supporting the people we love is its own kind of brave.",
     "Inspired by the strengths and growth of the Leo sun sign, Lester Leo And The Lead is a tender, star-bright story about confidence, humility, and the quiet courage of friendship.",
   ],
-  excerpt: "Every star shines in its own special way.",
+  excerpt: seriesTagline,
   formats: [
     {
       type: "Paperback",

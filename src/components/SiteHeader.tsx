@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { ShoppingBag, Menu, X, Moon, ExternalLink } from "lucide-react";
+import { ShoppingBag, Menu, X, Moon } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
-import { purchaseUrl } from "@/lib/books";
+import { BuyTheBookLink } from "@/components/BuyTheBookLink";
 import { AnimatePresence, motion } from "framer-motion";
 
 const nav = [
@@ -40,14 +40,9 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <a
-            href={purchaseUrl}
-            target={purchaseUrl.startsWith("http") ? "_blank" : undefined}
-            rel="noreferrer"
-            className="hidden lg:inline-flex btn-gold !py-2 !px-4 text-sm"
-          >
-            Buy the Book <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+          <BuyTheBookLink className="hidden lg:inline-flex btn-gold !py-2 !px-4 text-sm">
+            Buy the Book
+          </BuyTheBookLink>
           <Link
             to="/cart"
             className="relative flex items-center justify-center w-10 h-10 rounded-full border border-cream/40 text-cream hover:bg-cream hover:text-night transition"
@@ -89,15 +84,9 @@ export function SiteHeader() {
                   {n.label}
                 </Link>
               ))}
-              <a
-                href={purchaseUrl}
-                target={purchaseUrl.startsWith("http") ? "_blank" : undefined}
-                rel="noreferrer"
-                className="btn-gold mt-2"
-                onClick={() => setOpen(false)}
-              >
-                Buy the Book <ExternalLink className="w-4 h-4" />
-              </a>
+              <BuyTheBookLink className="btn-gold mt-2" onClick={() => setOpen(false)}>
+                Buy the Book
+              </BuyTheBookLink>
             </div>
           </motion.nav>
         )}

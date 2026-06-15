@@ -1,4 +1,5 @@
 import { Mail } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Starfield } from "@/components/Starfield";
 import { author } from "@/lib/books";
 
@@ -6,14 +7,14 @@ export default function Contact() {
   return (
     <>
       {/* HEADER */}
-      <section className="panel-night relative px-6 py-16 overflow-hidden text-cream">
+      <section className="panel-night relative px-6 py-16 overflow-hidden text-cream text-center">
         <Starfield count={45} shootingStars={2} />
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-3xl">
           <span className="eyebrow text-gold">Get in Touch</span>
           <h1 className="mt-4 section-title text-[clamp(2.4rem,6vw,4.5rem)] text-cream">
             Say <span className="gold-text">hello</span>
           </h1>
-          <p className="mt-4 text-cream/80 max-w-xl leading-relaxed">
+          <p className="mt-4 text-cream/80 max-w-xl mx-auto leading-relaxed">
             Have a question or a note for Robin? Send an email any time.
           </p>
         </div>
@@ -32,6 +33,12 @@ export default function Contact() {
             <a href={`mailto:${author.email}`} className="btn-primary mt-7 inline-flex">
               <Mail className="w-4 h-4" /> {author.email}
             </a>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Looking for images to promote the book?{" "}
+              <Link to="/marketing" className="font-semibold text-violet hover:text-indigo transition">
+                Download social media assets
+              </Link>
+            </p>
           </div>
         </div>
       </section>

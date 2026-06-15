@@ -93,7 +93,7 @@ export default function VideoPage() {
         </div>
 
         <div className="mx-auto max-w-5xl px-6 mt-12 text-center">
-          <Link to="/books" className="btn-outline-ink">
+          <Link to="/books#order" className="btn-outline-ink">
             See all formats
           </Link>
         </div>

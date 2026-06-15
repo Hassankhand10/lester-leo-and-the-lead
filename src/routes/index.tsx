@@ -8,13 +8,11 @@ import {
   Sparkles,
   Quote,
   ShoppingBag,
-  ExternalLink,
   Wand2,
 } from "lucide-react";
-import { book, purchaseUrl } from "@/lib/books";
+import { book, seriesTagline, orderPath } from "@/lib/books";
+import { BuyTheBookLink } from "@/components/BuyTheBookLink";
 import { Starfield } from "@/components/Starfield";
-
-const buyTarget = purchaseUrl.startsWith("http") ? "_blank" : undefined;
 
 export default function Home() {
   const fromPrice = Math.min(...book.formats.map((f) => f.price));
@@ -43,14 +41,14 @@ export default function Home() {
               <span className="gold-text">And The Lead</span>
             </h1>
 
-            <p className="mt-4 font-script text-2xl text-gold/90">Every star shines in its own special way.</p>
+            <p className="mt-4 font-script text-2xl text-gold/90">{seriesTagline}</p>
 
             <p className="mt-6 text-lg text-cream/80 max-w-md leading-relaxed">{book.tagline}</p>
 
             <div className="mt-9 flex flex-wrap gap-3.5">
-              <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
+              <BuyTheBookLink className="btn-gold">
                 <ShoppingBag className="w-4 h-4" /> Buy the Book
-              </a>
+              </BuyTheBookLink>
             </div>
 
             <div className="mt-10 flex items-center gap-6 text-cream/70 text-sm">
@@ -66,7 +64,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Cover */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -106,7 +103,7 @@ export default function Home() {
           <p className="mt-8 text-lg leading-relaxed text-foreground/85">{book.blurb}</p>
           <blockquote className="card-soft p-7 mt-10 text-left">
             <Quote className="w-7 h-7 text-violet" />
-            <p className="mt-3 font-script text-3xl text-navy leading-snug">"{book.excerpt}"</p>
+            <p className="mt-3 font-script text-3xl text-navy leading-snug">{book.excerpt}</p>
           </blockquote>
         </div>
       </section>
@@ -155,7 +152,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <Link to="/books" className={`mt-8 w-full ${popular ? "btn-gold" : "btn-primary"}`}>
+                  <Link to={orderPath} className={`mt-8 w-full ${popular ? "btn-gold" : "btn-primary"}`}>
                     Choose {f.type} <ArrowRight className="w-4 h-4" />
                   </Link>
                 </motion.div>
@@ -182,10 +179,10 @@ export default function Home() {
             tomorrow, because they'll ask.
           </p>
           <div className="mt-10 flex flex-wrap gap-3.5 justify-center">
-            <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
-              <ExternalLink className="w-4 h-4" /> Buy the Book
-            </a>
-            <Link to="/books" className="btn-ghost">
+            <BuyTheBookLink className="btn-gold">
+              <ShoppingBag className="w-4 h-4" /> Buy the Book
+            </BuyTheBookLink>
+            <Link to={orderPath} className="btn-ghost">
               <ShoppingBag className="w-4 h-4" /> Shop all formats
             </Link>
           </div>

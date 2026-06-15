@@ -1,24 +1,23 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BookOpen, Quote, Moon, Mail } from "lucide-react";
-import { book, author, purchaseUrl } from "@/lib/books";
+import { book, author, seriesTagline } from "@/lib/books";
+import { BuyTheBookLink } from "@/components/BuyTheBookLink";
 import { Starfield } from "@/components/Starfield";
 import authorPhoto from "@/assets/robin.png";
-
-const buyTarget = purchaseUrl.startsWith("http") ? "_blank" : undefined;
 
 export default function About() {
   return (
     <>
       {/* HEADER */}
-      <section className="panel-night relative px-6 py-20 overflow-hidden text-cream">
+      <section className="panel-night relative px-6 py-20 overflow-hidden text-cream text-center">
         <Starfield count={55} shootingStars={3} />
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative mx-auto max-w-3xl">
           <span className="eyebrow text-gold">About the Author</span>
           <h1 className="mt-4 section-title text-[clamp(2.6rem,6vw,5rem)] text-cream">
             Hello, I'm <span className="gold-text">Robin</span>
           </h1>
-          <p className="mt-5 text-cream/80 max-w-xl leading-relaxed">{author.bio}</p>
+          <p className="mt-5 text-cream/80 max-w-xl mx-auto leading-relaxed">{author.bio}</p>
           <div className="mt-6 inline-flex items-center gap-2 text-cream/70 text-sm">
             <Moon className="w-4 h-4 text-gold" /> {author.name}
           </div>
@@ -82,13 +81,13 @@ export default function About() {
         <div className="relative mx-auto max-w-4xl px-6 text-center text-cream">
           <Quote className="w-10 h-10 text-gold mx-auto" />
           <blockquote className="mt-7 section-title text-3xl md:text-5xl text-cream leading-tight">
-            "Every star shines in its <span className="gold-text">own special way.</span>"
+            {seriesTagline}
           </blockquote>
           <p className="mt-7 text-cream/70 text-sm tracking-widest uppercase">— {author.name} · {book.title}</p>
           <div className="mt-10 flex flex-wrap justify-center gap-3.5">
-            <a href={purchaseUrl} target={buyTarget} rel="noreferrer" className="btn-gold">
+            <BuyTheBookLink className="btn-gold">
               <BookOpen className="w-4 h-4" /> Buy the Book
-            </a>
+            </BuyTheBookLink>
           </div>
         </div>
       </section>

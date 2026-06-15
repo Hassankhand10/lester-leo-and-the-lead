@@ -13,6 +13,7 @@ import Audiobook from "./routes/audiobook";
 import Videobook from "./routes/videobook";
 import Contact from "./routes/contact";
 import Cart from "./routes/cart";
+import Marketing from "./routes/marketing";
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ export default function App() {
             <Route path="/audiobook" element={<Audiobook />} />
             <Route path="/videobook" element={<Videobook />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/marketing" element={<Marketing />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -40,7 +40,7 @@ export default function CartPage() {
                 <Sparkles className="w-9 h-9" />
               </div>
               <p className="mt-6 text-xl text-foreground/75 font-medium">Your cart is waiting for its first story.</p>
-              <Link to="/books" className="btn-primary mt-8">
+              <Link to="/books#order" className="btn-primary mt-8">
                 <ShoppingBag className="w-4 h-4" /> Browse the Book <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

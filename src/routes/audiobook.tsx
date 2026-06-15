@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Headphones, ShoppingBag, ExternalLink, Sparkles, Moon, Star, Check } from "lucide-react";
+import { Headphones, ShoppingBag, ExternalLink, Sparkles, Moon, Star, Check, Mic } from "lucide-react";
 import { book, audiobook, purchaseUrl } from "@/lib/books";
 import { useCart } from "@/lib/cart";
 import { toast } from "sonner";
@@ -63,7 +62,7 @@ export default function AudioPage() {
               <ul className="mt-6 space-y-2.5 text-sm">
                 {audiobook.perks.map((p) => (
                   <li key={p} className="flex items-start gap-2.5">
-                    <Check className="w-4 h-4 shrink-0 mt-0.5 text-violet" />
+                    <Check className="w-4 h-4 shrink-0 text-violet" />
                     <span className="text-foreground/85">{p}</span>
                   </li>
                 ))}
@@ -92,6 +91,28 @@ export default function AudioPage() {
             </div>
           </div>
 
+          {/* Recording guide for Robin */}
+          <div className="mt-14 card-soft p-8 md:p-10 max-w-3xl">
+            <span className="eyebrow">
+              <Mic className="w-4 h-4" /> Recording the audiobook
+            </span>
+            <h3 className="mt-4 section-title text-2xl md:text-3xl text-navy">
+              How we'll capture <span className="gradient-text">your narration</span>
+            </h3>
+            <p className="mt-5 text-foreground/85 leading-relaxed">
+              Robin narrates the audiobook herself. The team will schedule one or two quiet recording sessions — either
+              remotely with a quality USB microphone at home, or in a local studio for polished sound.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm text-foreground/85">
+              <li>Read through the full story in a calm, bedtime-friendly pace (~{audiobook.minutes} minutes)</li>
+              <li>Soft background music is added afterward in post-production</li>
+              <li>Final files are delivered as MP3 for download on the site</li>
+            </ul>
+            <Link to="/contact" className="btn-outline-ink mt-8">
+              Contact the team to schedule recording
+            </Link>
+          </div>
+
           {/* When to listen */}
           <div className="mt-14 text-center">
             <span className="eyebrow">Perfect for</span>
@@ -114,7 +135,7 @@ export default function AudioPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <Link to="/books" className="btn-outline-ink">
+            <Link to="/books#order" className="btn-outline-ink">
               Prefer the printed book?
             </Link>
           </div>
