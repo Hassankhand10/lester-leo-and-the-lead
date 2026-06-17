@@ -2,15 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { ShoppingBag, Menu, X, Moon } from "lucide-react";
 import { useState } from "react";
 import { useCart } from "@/lib/cart";
-import { BuyTheBookLink } from "@/components/BuyTheBookLink";
 import { AnimatePresence, motion } from "framer-motion";
 
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
   { to: "/books", label: "Book" },
-  { to: "/audiobook", label: "AudioBook" },
-  { to: "/videobook", label: "VideoBook" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -40,9 +37,6 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2.5">
-          <BuyTheBookLink className="hidden lg:inline-flex btn-gold !py-2 !px-4 text-sm">
-            Buy the Book
-          </BuyTheBookLink>
           <Link
             to="/cart"
             className="relative flex items-center justify-center w-10 h-10 rounded-full border border-cream/40 text-cream hover:bg-cream hover:text-night transition"
@@ -84,9 +78,6 @@ export function SiteHeader() {
                   {n.label}
                 </Link>
               ))}
-              <BuyTheBookLink className="btn-gold mt-2" onClick={() => setOpen(false)}>
-                Buy the Book
-              </BuyTheBookLink>
             </div>
           </motion.nav>
         )}

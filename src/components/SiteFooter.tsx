@@ -38,16 +38,6 @@ export function SiteFooter() {
               </Link>
             </li>
             <li>
-              <Link to="/audiobook" className="hover:text-gold transition">
-                Audiobook
-              </Link>
-            </li>
-            <li>
-              <Link to="/videobook" className="hover:text-gold transition">
-                Videobook
-              </Link>
-            </li>
-            <li>
               <Link to="/about" className="hover:text-gold transition">
                 About the Author
               </Link>

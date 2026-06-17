@@ -18,7 +18,7 @@ import spread14 from "@/assets/illustrations/spread-14.webp";
 import spread15 from "@/assets/illustrations/spread-15.webp";
 import spread16 from "@/assets/illustrations/spread-16.webp";
 
-export type Format = "Paperback" | "Hardcover" | "E-Book" | "Audiobook" | "Videobook";
+export type Format = "Paperback" | "Hardcover" | "E-Book";
 
 export interface BookFormat {
   type: Format;
@@ -173,36 +173,6 @@ export const storySpreads: StorySpread[] = [
   { image: spread15, caption: "Over the next few weeks, Lester helped Ahmi practice." },
   { image: spread16, caption: "Ahmi received a standing ovation \u2014 and Lester couldn\u2019t have been prouder." },
 ];
-
-// Audio & video editions — presented as buy-only pages (no on-site player).
-export const audiobook = {
-  format: "Audiobook" as Format,
-  price: 7.99,
-  minutes: 14,
-  narrator: "Robin Lee Bartkovsky",
-  buyUrl: purchaseUrl,
-  tagline: "Lester Leo, read aloud with gentle music — perfect for sleepy ears and long drives.",
-  perks: [
-    "Narrated by the author",
-    "Soft background score",
-    "About 14 minutes",
-    "Instant download · MP3",
-  ],
-};
-
-export const videobook = {
-  format: "Videobook" as Format,
-  price: 9.99,
-  minutes: 12,
-  buyUrl: purchaseUrl,
-  tagline: "A read-along video where the hand-painted spreads come quietly to life on screen.",
-  perks: [
-    "Narrated read-along",
-    "Animated watercolor scenes",
-    "About 12 minutes",
-    "HD download · MP4",
-  ],
-};
 
 // Free "peek inside" — a small teaser, not the whole book.
 export const peekSpreads = storySpreads.slice(0, 4);
