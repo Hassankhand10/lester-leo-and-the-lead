@@ -11,8 +11,8 @@ export function SiteFooter() {
 
       {/* Main footer */}
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-16 grid md:grid-cols-12 gap-10">
-        <div className="md:col-span-5">
-          <div className="flex items-center gap-3">
+        <div className="md:col-span-5 text-center md:text-left">
+          <div className="flex items-center gap-3 justify-center md:justify-start">
             <span className="grid place-items-center w-10 h-10 rounded-full bg-gradient-to-br from-violet to-indigo border border-cream/30">
               <Moon className="w-5 h-5 text-gold" />
             </span>
@@ -24,12 +24,12 @@ export function SiteFooter() {
             <em>Lester Leo And The Lead</em> — a warm picture book about a confident little lion, his best friend, and
             the gentle magic of letting someone else shine. Made for bedtimes, blanket forts, and big little hearts.
           </p>
-          <BuyTheBookLink className="btn-gold mt-7">
+          <BuyTheBookLink className="btn-gold mt-7 mx-auto md:mx-0">
             Buy the Book
           </BuyTheBookLink>
         </div>
 
-        <div className="md:col-span-3">
+        <div className="md:col-span-3 text-center md:text-left">
           <h4 className="eyebrow text-gold mb-5">Explore</h4>
           <ul className="space-y-3 text-cream/80 font-semibold">
             <li>
@@ -55,11 +55,11 @@ export function SiteFooter() {
           </ul>
         </div>
 
-        <div className="md:col-span-4">
+        <div className="md:col-span-4 text-center md:text-left">
           <h4 className="eyebrow text-gold mb-5">Say Hello</h4>
           <a
             href={`mailto:${author.email}`}
-            className="inline-flex items-center gap-2.5 text-cream/85 hover:text-gold transition font-semibold"
+            className="inline-flex items-center gap-2.5 text-cream/85 hover:text-gold transition font-semibold justify-center md:justify-start"
           >
             <span className="w-11 h-11 rounded-full bg-white/5 border border-cream/25 grid place-items-center">
               <Mail className="w-5 h-5" />
@@ -74,7 +74,7 @@ export function SiteFooter() {
 
       {/* Bottom strip */}
       <div className="relative border-t border-violet/25">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-cream/60">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-6 flex flex-col md:flex-row gap-3 md:items-center md:justify-between text-xs text-cream/60 text-center md:text-left">
           <p>© {new Date().getFullYear()} {author.name} · Astro Academy · All rights reserved</p>
           <p className="inline-flex items-center gap-1.5">
             Made with <Heart className="w-3.5 h-3.5 fill-gold text-gold" /> for little stars

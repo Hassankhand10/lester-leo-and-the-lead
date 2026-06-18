@@ -107,7 +107,7 @@ export default function BooksPage() {
           </motion.div>
 
           {/* Order details */}
-          <div>
+          <div className="text-center lg:text-left">
             <span className="eyebrow">
               <Sparkles className="w-4 h-4" /> {book.series} · Leo
             </span>
@@ -167,7 +167,7 @@ export default function BooksPage() {
               </motion.div>
             </div>
 
-            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <button
                 onClick={() => {
                   add({
@@ -190,7 +190,7 @@ export default function BooksPage() {
 
             <Link
               to="/cart"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-violet hover:text-indigo transition"
+              className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-violet hover:text-indigo transition mx-auto lg:mx-0"
             >
               <ShoppingBag className="w-4 h-4" /> View cart
             </Link>
@@ -207,7 +207,7 @@ export default function BooksPage() {
             A quiet kind of <span className="gold-text">brave.</span>
           </h2>
           <p className="mt-8 text-lg text-cream/85 leading-relaxed">{book.blurb}</p>
-          <blockquote className="mt-10 card-soft p-6 text-left">
+          <blockquote className="mt-10 card-soft p-6 text-center md:text-left">
             <p className="font-script text-2xl text-navy leading-snug">{book.excerpt}</p>
           </blockquote>
           <div className="mt-10 inline-flex flex-wrap justify-center gap-8 text-sm">

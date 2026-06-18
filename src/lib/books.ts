@@ -68,7 +68,7 @@ export const seriesTagline = "We are here to help each other shine.";
 export const author = {
   name: "Robin Bartkovsky",
   series: "Astro Academy",
-  email: "hello@astroacademybooks.com",
+  email: "robinbartkovsky@gmail.com",
   bio: "Robin Bartkovsky is an amateur astrologist and former teacher. She resides outside Chicago with her supportive husband, teenage sons, and adorable fur babies.",
   tagline:
     "A warm-hearted picture book about a confident little lion, his best friend, and the gentle magic of letting someone else shine.",

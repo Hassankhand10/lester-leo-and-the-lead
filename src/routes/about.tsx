@@ -44,7 +44,7 @@ export default function About() {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="md:col-span-3 space-y-5 text-foreground"
+            className="md:col-span-3 space-y-5 text-foreground text-center md:text-left"
           >
             <span className="eyebrow">A note from Robin</span>
             <h2 className="section-title text-3xl md:text-5xl text-navy">Dear Young Leo,</h2>
@@ -63,7 +63,7 @@ export default function About() {
               create this series. I hope you find astrology to be as helpful and enlightening as I have.
             </p>
             <p className="font-script text-3xl text-violet">Sincerely, Robin</p>
-            <div className="pt-2 flex flex-wrap gap-3">
+            <div className="pt-2 flex flex-wrap gap-3 justify-center md:justify-start">
               <Link to="/books" className="btn-primary">
                 <BookOpen className="w-4 h-4" /> Read the Book
               </Link>

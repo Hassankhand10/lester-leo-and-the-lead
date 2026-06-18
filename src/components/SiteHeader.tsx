@@ -73,7 +73,7 @@ export function SiteHeader() {
                   key={n.to}
                   to={n.to}
                   onClick={() => setOpen(false)}
-                  className="px-3 py-3 font-display text-lg text-cream hover:text-gold"
+                  className="px-3 py-3 font-display text-lg text-cream hover:text-gold text-center"
                 >
                   {n.label}
                 </Link>

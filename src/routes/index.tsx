@@ -29,7 +29,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
-            className="text-cream"
+            className="text-cream text-center lg:text-left"
           >
             <span className="chip-night">
               <Sparkles className="w-3.5 h-3.5 text-gold" /> Astro Academy · New Release
@@ -43,15 +43,15 @@ export default function Home() {
 
             <p className="mt-4 font-script text-2xl text-gold/90">{seriesTagline}</p>
 
-            <p className="mt-6 text-lg text-cream/80 max-w-md leading-relaxed">{book.tagline}</p>
+            <p className="mt-6 text-lg text-cream/80 max-w-md mx-auto lg:mx-0 leading-relaxed">{book.tagline}</p>
 
-            <div className="mt-9 flex flex-wrap gap-3.5">
+            <div className="mt-9 flex flex-wrap gap-3.5 justify-center lg:justify-start">
               <BuyTheBookLink className="btn-gold">
                 <ShoppingBag className="w-4 h-4" /> Buy the Book
               </BuyTheBookLink>
             </div>
 
-            <div className="mt-10 flex items-center gap-6 text-cream/70 text-sm">
+            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-cream/70 text-sm">
               <span className="inline-flex items-center gap-2">
                 <Star className="w-4 h-4 fill-gold text-gold" /> Ages {book.ageRange}
               </span>
@@ -101,8 +101,8 @@ export default function Home() {
             One spotlight. <span className="gradient-text">Two best friends.</span>
           </h2>
           <p className="mt-8 text-lg leading-relaxed text-foreground/85">{book.blurb}</p>
-          <blockquote className="card-soft p-7 mt-10 text-left">
-            <Quote className="w-7 h-7 text-violet" />
+          <blockquote className="card-soft p-7 mt-10 text-center md:text-left">
+            <Quote className="w-7 h-7 text-violet mx-auto md:mx-0" />
             <p className="mt-3 font-script text-3xl text-navy leading-snug">{book.excerpt}</p>
           </blockquote>
         </div>
@@ -128,7 +128,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className={`relative p-8 ${popular ? "card-night" : "card-soft"}`}
+                  className={`relative p-8 text-center md:text-left ${popular ? "card-night" : "card-soft"}`}
                 >
                   {popular && (
                     <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gold text-night text-xs font-extrabold tracking-wide whitespace-nowrap shadow">
@@ -146,7 +146,7 @@ export default function Home() {
                   </p>
                   <ul className="mt-6 space-y-2.5 text-sm">
                     {f.perks.map((p) => (
-                      <li key={p} className="flex items-start gap-2.5">
+                      <li key={p} className="flex items-start justify-center md:justify-start gap-2.5">
                         <Sparkles className={`w-4 h-4 shrink-0 mt-0.5 ${popular ? "text-gold" : "text-violet"}`} />
                         <span className={popular ? "text-cream/85" : "text-foreground/85"}>{p}</span>
                       </li>

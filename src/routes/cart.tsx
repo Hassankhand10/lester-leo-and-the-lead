@@ -19,7 +19,7 @@ export default function CartPage() {
       {/* HERO */}
       <section className="panel-night relative py-14 overflow-hidden">
         <Starfield count={40} shootingStars={2} />
-        <div className="relative mx-auto max-w-5xl px-6 text-cream">
+        <div className="relative mx-auto max-w-5xl px-6 text-cream text-center lg:text-left">
           <span className="eyebrow text-gold">Your Little Library</span>
           <h1 className="mt-4 section-title text-4xl md:text-6xl text-cream">
             Your <span className="gold-text">Cart</span>
