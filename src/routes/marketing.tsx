@@ -35,7 +35,7 @@ const socialAssets = [
   },
 ];
 
-const basePath = "/Robin-Bartkovsky/social";
+const basePath = `${import.meta.env.BASE_URL}social`;
 
 export default function Marketing() {
   return (

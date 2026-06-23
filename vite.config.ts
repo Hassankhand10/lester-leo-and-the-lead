@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from "node:path";
 
 export default defineConfig({
-  base: "/Robin-Bartkovsky/",
+  base: "/",
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   resolve: {
     alias: {

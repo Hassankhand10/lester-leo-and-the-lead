@@ -1,7 +1,7 @@
-# SPA routing for cPanel / Apache
+# SPA routing for cPanel / Apache (site at domain root)
 Options -MultiViews
 RewriteEngine On
-RewriteBase /Robin-Bartkovsky/
+RewriteBase /
 
 # Don't rewrite existing files/directories
 RewriteCond %{REQUEST_FILENAME} -f [OR]
@@ -9,7 +9,7 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # Send everything else to index.html
-RewriteRule ^ /Robin-Bartkovsky/index.html [L]
+RewriteRule ^ index.html [L]
 
 # Long cache for static assets
 <IfModule mod_headers.c>
