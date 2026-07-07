@@ -5,8 +5,14 @@ import { book, author } from "@/lib/books";
 const socialAssets = [
   {
     file: "cover-front.webp",
-    title: "Book cover",
+    title: "Front cover",
     description: "Front cover — great for launch posts and link-in-bio.",
+    aspect: "square",
+  },
+  {
+    file: "cover-back.webp",
+    title: "Back cover",
+    description: "Back cover with blurb and author credit — perfect for story posts.",
     aspect: "square",
   },
   {

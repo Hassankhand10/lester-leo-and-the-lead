@@ -1,5 +1,6 @@
 import coverFront from "@/assets/cover-front.webp";
-import coverBack from "@/assets/cover-back.png";
+
+const coverBack = `${import.meta.env.BASE_URL}social/cover-back.webp`;
 
 import spread01 from "@/assets/illustrations/spread-01.webp";
 import spread02 from "@/assets/illustrations/spread-02.webp";
